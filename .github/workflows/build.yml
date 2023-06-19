@@ -21,6 +21,7 @@ jobs:
             dockerfile: ./mysql/Dockerfile
             context: ./mysql
             image: uladdzerzh/mysql
+        arch: [amd64, arm64] # Add architecture 
 
     steps:
       - name: Checkout source code
@@ -36,6 +37,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push
-        run: |
-          docker buildx build --platform ${{ matrix.arch }} -t ${{ matrix.image }} -f ${{ matrix.dockerfile }} {{ defaultContext }}:${{ matrix.context }}
-          docker push ${{ matrix.image }}
+        uses: docker/build-push-action@v2 
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          platforms: linux/${{ matrix.arch }} 
+          tags: ${{ matrix.image }}:latest 
+          push: true
