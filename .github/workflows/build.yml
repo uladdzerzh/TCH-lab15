@@ -19,8 +19,8 @@ jobs:
             image: uladdzerzh/html
           - service: mysql
             dockerfile: ./mysql/Dockerfile
-            context: ./mysql
-            image: uladdzerzh/mysql.
+            context: ./mysql.
+            image: uladdzerzh/mysql
         arch: [amd64, arm64] 
 
     steps:
