@@ -37,5 +37,5 @@ jobs:
 
       - name: Build and push
         run: |
-          docker buildx build --platform ${{ matrix.arch }} -t ${{ matrix.image }} -f ${{ matrix.dockerfile }} {{ defaultContext }}:${{ matrix.context }}
+          docker buildx build --platform ${{ matrix.arch }} -t ${{ matrix.image }} -f ${{ matrix.dockerfile }} . --push
           docker push ${{ matrix.image }}
