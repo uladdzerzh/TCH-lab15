@@ -1,7 +1,7 @@
 version: '3'
 services:
   nginx:
-    image: $DOCKER_USERNAME/lemp:amd64
+    image: buterbrodskij/lemp:amd64
     ports:
       - 6666:80
     volumes:
@@ -14,14 +14,14 @@ services:
       - frontend
 
   php:
-    image: $DOCKER_USERNAME/lemp:amd64
+    image: buterbrodskij/lemp:amd64
     volumes:
       - ./html:/var/www/html
     networks:
       - backend
 
   mysql:
-    image: $DOCKER_USERNAME/lemp:amd64
+    image: buterbrodskij/lemp:amd64
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: test
@@ -33,7 +33,7 @@ services:
       - backend
 
   phpmyadmin:
-    image: $DOCKER_USERNAME/lemp:amd64
+    image: buterbrodskij/lemp:amd64
     ports:
       - 6001:80
     environment:
