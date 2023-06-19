@@ -20,8 +20,8 @@ jobs:
           - service: mysql
             dockerfile: ./mysql/Dockerfile
             context: ./mysql
-            image: uladdzerzh/mysql
-        arch: [amd64, arm64] # Add architecture 
+            image: uladdzerzh/mysql.
+        arch: [amd64, arm64] 
 
     steps:
       - name: Checkout source code
