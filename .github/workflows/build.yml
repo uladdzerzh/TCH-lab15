@@ -37,6 +37,5 @@ jobs:
 
       - name: Build and push
         run: |
-          docker buildx build --platform ${{ matrix.arch }} -t ${{ matrix.image }} -f ${{ matrix.dockerfile }} ./${{ matrix.context }}
-
-          docker push ${{ matrix.image }}
+          docker buildx build --platform ${{ matrix.arch }} -t ${{ matrix.service.image }} -f ${{ matrix.service.dockerfile }} ./${{ matrix.service.context }}
+          docker push ${{ matrix.service.image }}
