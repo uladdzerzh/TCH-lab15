@@ -21,6 +21,7 @@ jobs:
             dockerfile: ./mysql/Dockerfile
             context: ./mysql
             image: uladdzerzh/mysql
+        arch: [amd64, arm64]
 
     steps:
       - name: Checkout source code
